@@ -25,7 +25,7 @@ def algorithm(request):
 def send_mess(request):
     global last_json
     if last_json:
-        # print(last_json)
+        # Функция для отправки сообщения json методом shared_memory
         pass
     return JsonResponse({})
 
