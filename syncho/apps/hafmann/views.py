@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import JsonResponse, HttpResponseNotFound
 import json
 from .encode import haffman_in_json
+from .shared_memory import Shared
+from shared_memory_dict import SharedMemoryDict
 
 def home(request):
     ip = request.META["REMOTE_ADDR"]
@@ -25,8 +27,7 @@ def algorithm(request):
 def send_mess(request):
     global last_json
     if last_json:
-        # Функция для отправки сообщения json методом shared_memory
-        pass
+        Shared(last_json)
     return JsonResponse({})
 
 
