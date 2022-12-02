@@ -1,9 +1,9 @@
 from django.shortcuts import render
-from django.http import JsonResponse, HttpResponseNotFound
+from django.http import JsonResponse
 import json
 from .encode import haffman_in_json
 from .shared_memory import Shared
-from shared_memory_dict import SharedMemoryDict
+import sys
 
 def home(request):
     ip = request.META["REMOTE_ADDR"]
@@ -22,6 +22,8 @@ def algorithm(request):
                 "unshifr":data,
                 "shifr": last_json,
             }
+            print(sys.getsizeof(data))
+            print(round(sys.getsizeof(last_json)/ 2 - 0.1, 3))
             return JsonResponse(out)
 
 def send_mess(request):

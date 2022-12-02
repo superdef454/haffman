@@ -12,5 +12,3 @@ def Shared(data: dict):
         time.sleep(1)
     sha_a.shm.close()
     sha_a.shm.unlink()
-    
-    
